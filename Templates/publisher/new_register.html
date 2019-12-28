@@ -1,0 +1,116 @@
+{% extends 'publisher/index.html' %}
+{% block content %}
+<!-- {% load static %} -->
+<br><br><hr><br>
+<!-- <div class="container"> -->
+    <div style="background-image: url('{%static 'images/signup-bg2' %}');">
+<form method="POST">
+    {% csrf_token %}
+    <div class="login-wrap">
+        <div class="login-html">
+            <input id="tab-1" type="radio" name="is_client" class="sign-in" checked><label for="tab-1" class="tab">Client</label>
+            <input id="tab-2" type="radio" name="is_publisher" class="sign-up"><label for="tab-2" class="tab">Publisher</label>
+            <div class="login-form">
+                <!-- <div class="sign-in-htm">
+                    <div class="group">
+                        <label for="user" class="label">Username</label>
+                        <input id="user" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        <input id="check" type="checkbox" class="check" checked>
+                        <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign In">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <a href="#forgot">Forgot Password?</a>
+                    </div>
+                </div> -->
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <label for="user" class="label">Company Name</label>
+                        <input id="user" type="text" class="input" name="first_name">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="pass" type="password" class="input" data-type="password1">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Repeat Password</label>
+                        <input id="pass" type="password" class="input" data-type="password2">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Email Address</label>
+                        <input id="pass" type="email" class="input" name="email">
+                    </div>
+                    <!-- <div class="group">
+                        <label for="user" class="label">Contact Number</label>
+                        <input id="user" type="text" class="input" name="phone_num">
+                    </div>
+                    <div class="group">
+                        <label for="user" class="label">Address</label>
+                        <input id="user" type="text" class="input" name="address">
+                    </div> -->
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign Up">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <label for="tab-1">Already Member?</a>
+                    </div>
+                </div>
+                <div class="sign-up-htm">
+                    <div class="group">
+                        <label for="user" class="label">Company Name</label>
+                        <input id="user" type="text" class="input" name="first_name">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="pass" type="password" class="input" data-type="password1">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Repeat Password</label>
+                        <input id="pass" type="password" class="input" data-type="password2">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Email Address</label>
+                        <input id="pass" type="email" class="input" name="email">
+                    </div>
+                    <!-- <div class="group">
+                        <label for="user" class="label">Contact Number</label>
+                        <input id="user" type="text" class="input" name="phone_num">
+                    </div>
+                    <div class="group">
+                        <label for="user" class="label">Address</label>
+                        <input id="user" type="text" class="input" name="address">
+                    </div> -->
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign Up">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <label for="tab-1">Already Member?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</form><br>
+</div>
+{% if messages %}
+{% for message in messages %}
+<ol style="color: red;">    
+{{message}}
+</ol>
+{% endfor %}
+{% endif %}
+<!-- </div> -->
+<br><br>
+{% endblock %}

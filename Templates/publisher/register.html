@@ -1,0 +1,65 @@
+{% extends 'publisher/index.html' %}
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<br><br>
+<div class="container">
+<form method="POST">
+    {% csrf_token %}
+    <a class="navbar-brand" href="{% url 'home' %}" style="color: yellowgreen;">PromoteMe</a>
+    <h2>Sign Up Here!</h2>
+    <hr>
+    <div class="form-check-inline">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input" name="is_client">Register as Client
+      </label>
+    </div>
+    <div class="form-check-inline">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input" name="is_publisher">Register as publisher
+      </label>
+    </div>
+    <script type="text/javascript">
+	    $('.form-check-input').on('change', function() {
+		    $('.form-check-input').not(this).prop('checked', false);  
+		});
+    </script>
+    <br><br>
+
+    <div class="form-group">
+        <label>Company name:</label>
+        <input type="text" class="form-control" name="first_name">
+      </div>
+    <div class="form-group">
+        <label>Email address:</label>
+        <input type="email" class="form-control" name="email">
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" class="form-control" name="password1">
+      </div>
+      <div class="form-group">
+        <label>Confirm Password:</label>
+        <input type="password" class="form-control" name="password2">
+      </div>
+      <!-- <div class="form-group">
+        <label>Contact Number:</label>
+        <input type="text" class="form-control" name="phone_num">
+      </div>
+      <div class="form-group">
+        <label>Address:</label>
+        <input type="text" class="form-control" name="address">
+      </div> -->
+      <button type="submit" class="btn btn-primary">Register</button>
+      <a href="{% url 'home' %}">Back to Home</a>
+
+</form><br>
+{% if messages %}
+{% for message in messages %}
+<ol style="color: red;">    
+{{message}}
+</ol>
+{% endfor %}
+{% endif %}
+</div>
+<br><br>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'publisher/index.html' %}
+{% block content %}
+  <br><br><br>
+{% for i in publishers %}
+    {{i.first_name}} -----------
+    {% for j in banners %}
+        {% if j.name.email == i.email %}
+                            
+            [ {{ j.size }} /
+            {{ j.location }} /
+            {{ j.price }} ]
+                            
+        {% endif %}
+    {% endfor %}
+    <hr>
+    {% endfor %}
+{% endblock %}

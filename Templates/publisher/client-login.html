@@ -1,0 +1,24 @@
+{% extends 'testapp/index.html' %}
+{% block content %}
+<style>
+.jumbotron{
+    height: 80px;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+</style>
+<br><br><br>
+    <div class="container">
+        <div class="jumbotron">
+            <h3>Sign up Here! </h3>
+        </div>
+        <form method="POST" class="uniForm">
+            {% load crispy_forms_tags %}
+            {{ form|crispy }}
+            {% csrf_token %}
+            <br>
+            <input type="submit" class="btn btn-success" name="Submit">
+            <br><br>
+        </form>
+    </div>    
+{% endblock %}

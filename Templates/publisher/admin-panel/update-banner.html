@@ -1,0 +1,23 @@
+{% extends 'publisher/admin-panel/index.html' %}
+{% block content %}
+  
+
+<footer class="site-footer">
+    <div class="footer-inner bg-white">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Update Banner details Here!</h3><hr>
+                <div class="container">
+                <form method="POST" class="uniForm" enctype="multipart/form-data">
+                    {% load crispy_forms_tags %}
+                    {{ data|crispy }}
+                    {% csrf_token %}
+                    <br>
+                    <input type="submit" class="btn btn-success" name="Submit">
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}

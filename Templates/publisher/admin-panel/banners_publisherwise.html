@@ -1,0 +1,65 @@
+{% extends 'publisher/admin-panel/index.html' %}
+{% block content %}
+  
+
+<footer class="site-footer">
+    <!-- <div class="footer-inner bg-white"> -->
+        <div class="row">
+            <div class="col-sm-12">
+                <!-- <h3>Fill out your Banner details Here!</h3><hr> -->
+                <div class="container">
+                    {% if data %}
+                    
+                    <div class="orders">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="box-title">Banners </h4>
+                                    </div>
+                                    <div class="card-body--">
+                                        <div class="table-stats order-table ov-h">
+                                            <table class="table ">
+                                                <thead>
+                                                    <tr style="text-align: center;">
+                                                        <th>ID</th>
+                                                        <th class="avatar">Images</th>
+                                                        <th>Price</th>
+                                                        <th>Location</th>
+                                                        <th>Size</th>
+                                                        <th>Update</th>
+                                                        <th>Delete</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for banner in data %}
+                                                    <tr style="text-align: center;">
+                                                        <td> {{banner.id}} </td>
+                                                        <td class="avatar">
+                                                            <div class="round-img">
+                                                                <a href="#"><img class="rounded-circle" src="{{ banner.pic.url }}" alt=""></a>
+                                                            </div>
+                                                        </td>
+                                                        <td>  <span class="name">{{banner.price}}</span> </td>
+                                                        <td> <span class="product">{{banner.location}}</span> </td>
+                                                        <td><span class="serial">"{{banner.size}}"</span></td>
+                                                        <td><a href="{% url 'banner-update'  id=banner.id %}" style="color: blue;">Update</a></td>
+                                                        <td><a href="{% url 'banner-del'  id=banner.id %}" style="color: red;">Delete</a></td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div> <!-- /.table-stats -->
+                                    </div>
+                                </div> <!-- /.card -->
+                            </div>  <!-- /.col-lg-8 -->
+                        </div>
+                    </div>
+                    
+                    {% endif %}
+            </div>
+            </div>
+        </div>
+    <!-- </div> -->
+</footer>
+{% endblock %}
